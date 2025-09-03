@@ -1,0 +1,301 @@
+.commentForm {
+  background: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.commentForm:hover {
+  border-color: #0070f3;
+  box-shadow: 0 4px 16px rgba(0, 112, 243, 0.1);
+}
+
+.commentForm:focus-within {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 4px rgba(0, 112, 243, 0.1);
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.username {
+  font-weight: 600;
+  color: #0070f3;
+  font-size: 1rem;
+}
+
+.username::before {
+  content: '👤';
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.textareaContainer {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.commentTextarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 200px;
+  transition: all 0.2s ease;
+  background-color: #fafbfc;
+}
+
+.commentTextarea:focus {
+  outline: none;
+  border-color: #0070f3;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+}
+
+.commentTextarea:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.commentTextarea::placeholder {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.characterCount {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.8rem;
+  color: #6c757d;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.errorMessage {
+  background: #fee;
+  color: #c33;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.cancelButton {
+  background: transparent;
+  color: #6c757d;
+  border: 2px solid #e9ecef;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #dee2e6;
+  color: #495057;
+}
+
+.cancelButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #0070f3 0%, #0051cc 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.submitButton:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0051cc 0%, #003d99 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 112, 243, 0.3);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.loginPrompt {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 2rem;
+  border: 2px solid #e9ecef;
+}
+
+.loginPrompt p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.loginPrompt a {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.loginPrompt a:hover {
+  text-decoration: underline;
+}
+
+/* Loading state */
+.submitButton:disabled.loading {
+  background: #0070f3;
+  opacity: 0.8;
+}
+
+.submitButton:disabled.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .commentForm {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .commentTextarea {
+    font-size: 16px; /* Evita zoom no iOS */
+    padding: 0.875rem;
+  }
+
+  .formActions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .formHeader {
+    margin-bottom: 0.75rem;
+  }
+
+  .username {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .commentForm {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .commentTextarea {
+    min-height: 80px;
+  }
+
+  .characterCount {
+    font-size: 0.75rem;
+    bottom: 6px;
+    right: 8px;
+  }
+
+  .loginPrompt {
+    padding: 1.5rem;
+  }
+
+  .loginPrompt p {
+    font-size: 1rem;
+  }
+}
