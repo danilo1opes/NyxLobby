@@ -6,6 +6,7 @@ import Footer from '@/components/footer';
 import { UserContextProvider } from '@/context/user-context';
 import userGet from '@/actions/user-get';
 import { ActionResponse, User } from '@/types/actions';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'Lobby - Bem-vindo de volta',
@@ -34,6 +35,7 @@ export default async function RootLayout({
             <Footer />
           </div>
         </UserContextProvider>
+        <Analytics />
       </body>
     </html>
   );
